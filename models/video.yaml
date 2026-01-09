@@ -1,0 +1,207 @@
+# Video Generation Models
+
+wan/2-2-a14b-text-to-video-turbo:
+  name: Wan 2.2 Turbo Text-to-Video
+  provider: Wan
+  type: text-to-video
+  pricing:
+    480p: 0.20
+    580p: 0.30
+    720p: 0.40
+  input:
+    prompt:
+      type: string
+      max: 5000
+      required: true
+      description: Text prompt for video generation
+    resolution:
+      type: enum
+      values: [480p, 580p, 720p]
+      default: 480p
+    aspect_ratio:
+      type: enum
+      values: ["16:9", "9:16", "1:1"]
+      default: "16:9"
+    enable_prompt_expansion:
+      type: boolean
+      default: false
+    seed:
+      type: number
+
+wan/2-2-a14b-image-to-video-turbo:
+  name: Wan 2.2 Turbo Image-to-Video
+  provider: Wan
+  type: image-to-video
+  pricing:
+    480p: 0.20
+    580p: 0.30
+    720p: 0.40
+  input:
+    prompt:
+      type: string
+      max: 5000
+      required: true
+    image_urls:
+      type: array
+      items: url
+      max: 1
+      required: true
+    resolution:
+      type: enum
+      values: [480p, 580p, 720p]
+      default: 480p
+
+wan/2-6-text-to-video:
+  name: Wan 2.6 Text-to-Video
+  provider: Wan
+  type: text-to-video
+  pricing:
+    720p:
+      "5": 0.35
+      "10": 0.70
+    1080p:
+      "5": 0.52
+      "10": 1.05
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    resolution:
+      type: enum
+      values: [720p, 1080p]
+      default: 720p
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"
+
+wan/2-6-image-to-video:
+  name: Wan 2.6 Image-to-Video
+  provider: Wan
+  type: image-to-video
+  pricing:
+    720p:
+      "5": 0.35
+      "10": 0.70
+    1080p:
+      "5": 0.52
+      "10": 1.05
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    image_urls:
+      type: array
+      items: url
+      max: 1
+      required: true
+    resolution:
+      type: enum
+      values: [720p, 1080p]
+      default: 720p
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"
+
+kling/v2-5-turbo-text-to-video-pro:
+  name: Kling 2.5 Turbo Text-to-Video
+  provider: Kling
+  type: text-to-video
+  pricing:
+    "5": 0.21
+    "10": 0.42
+  input:
+    prompt:
+      type: string
+      max: 1000
+      required: true
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16"]
+      default: "16:9"
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"
+
+kling/v2-5-turbo-image-to-video-pro:
+  name: Kling 2.5 Turbo Image-to-Video
+  provider: Kling
+  type: image-to-video
+  pricing:
+    "5": 0.21
+    "10": 0.42
+  input:
+    prompt:
+      type: string
+      max: 1000
+      required: true
+    image_urls:
+      type: array
+      items: url
+      max: 1
+      required: true
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"
+
+kling-2.6/text-to-video:
+  name: Kling 2.6 Text-to-Video
+  provider: Kling
+  type: text-to-video
+  pricing:
+    "5":
+      noAudio: 0.275
+      withAudio: 0.55
+    "10":
+      noAudio: 0.55
+      withAudio: 1.10
+  input:
+    prompt:
+      type: string
+      max: 1000
+      required: true
+    sound:
+      type: boolean
+      default: false
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16"]
+      default: "16:9"
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"
+
+kling-2.6/image-to-video:
+  name: Kling 2.6 Image-to-Video
+  provider: Kling
+  type: image-to-video
+  pricing:
+    "5":
+      noAudio: 0.275
+      withAudio: 0.55
+    "10":
+      noAudio: 0.55
+      withAudio: 1.10
+  input:
+    prompt:
+      type: string
+      max: 1000
+      required: true
+    image_urls:
+      type: array
+      items: url
+      max: 1
+      required: true
+    sound:
+      type: boolean
+      default: false
+    duration:
+      type: enum
+      values: ["5", "10"]
+      default: "5"

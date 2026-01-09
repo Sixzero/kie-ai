@@ -1,0 +1,20 @@
+{
+  "name": "kie-ai-client",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/kie-client.js",
+  "types": "dist/kie-client.d.ts",
+  "scripts": {
+    "build": "bun build src/kie-client.ts --outdir dist --target node",
+    "build:models": "bun run scripts/build-models.ts",
+    "example": "bun run examples/wan-video.ts"
+  },
+  "dependencies": {
+    "yaml": "^2.7.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.0"
+  }
+}

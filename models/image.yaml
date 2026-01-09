@@ -1,0 +1,104 @@
+# Image Generation Models
+
+google/nano-banana:
+  name: Google Nano Banana
+  provider: Google
+  type: text-to-image
+  pricing:
+    default: 0.02
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+
+google/nano-banana-edit:
+  name: Google Nano Banana Edit
+  provider: Google
+  type: image-edit
+  pricing:
+    default: 0.02
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    image_urls:
+      type: array
+      items: url
+      max: 5
+      required: true
+
+flux2/flex-text-to-image:
+  name: Flux 2 Flex Text-to-Image
+  provider: Black Forest Labs
+  type: text-to-image
+  pricing:
+    1K: 0.03
+    2K: 0.05
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    resolution:
+      type: enum
+      values: [1K, 2K]
+      default: 1K
+
+flux2/pro-text-to-image:
+  name: Flux 2 Pro Text-to-Image
+  provider: Black Forest Labs
+  type: text-to-image
+  pricing:
+    1K: 0.05
+    2K: 0.08
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    resolution:
+      type: enum
+      values: [1K, 2K]
+      default: 1K
+
+grok-imagine/text-to-image:
+  name: Grok Imagine Text-to-Image
+  provider: Grok
+  type: text-to-image
+  pricing:
+    default: 0.07
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16", "3:2", "2:3"]
+      default: "1:1"
+
+qwen/text-to-image:
+  name: Qwen Text-to-Image
+  provider: Qwen
+  type: text-to-image
+  pricing:
+    default: 0.02
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
+
+seedream/4.5-text-to-image:
+  name: Seedream 4.5 Text-to-Image
+  provider: ByteDance
+  type: text-to-image
+  pricing:
+    default: 0.03
+  input:
+    prompt:
+      type: string
+      max: 2000
+      required: true
