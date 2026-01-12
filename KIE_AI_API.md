@@ -215,10 +215,10 @@ curl https://docs.kie.ai/market/google/nano-banana.md
 ### Image Models
 | Provider | Model ID |
 |----------|----------|
-| Flux | `flux2/flex-image-to-image` |
-| Flux | `flux2/flex-text-to-image` |
-| Flux | `flux2/pro-image-to-image` |
-| Flux | `flux2/pro-text-to-image` |
+| Flux | `flux-2/flex-image-to-image` |
+| Flux | `flux-2/flex-text-to-image` |
+| Flux | `flux-2/pro-image-to-image` |
+| Flux | `flux-2/pro-text-to-image` |
 | Google | `google/imagen4` |
 | Google | `google/imagen4-fast` |
 | Google | `google/imagen4-ultra` |

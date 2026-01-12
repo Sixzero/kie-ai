@@ -1,10 +1,15 @@
 # Image Generation Models
+# pricing = Fal.ai price (what we charge)
+# kie_pricing = Kie.ai price (our cost)
 
 google/nano-banana:
   name: Google Nano Banana
   provider: Google
   type: text-to-image
+  released: 2025-08-26
   pricing:
+    default: 0.039
+  kie_pricing:
     default: 0.02
   input:
     prompt:
@@ -16,7 +21,10 @@ google/nano-banana-edit:
   name: Google Nano Banana Edit
   provider: Google
   type: image-edit
+  released: 2025-08-26
   pricing:
+    default: 0.039
+  kie_pricing:
     default: 0.02
   input:
     prompt:
@@ -29,13 +37,127 @@ google/nano-banana-edit:
       max: 5
       required: true
 
-flux2/flex-text-to-image:
+nano-banana-pro:
+  name: Google Nano Banana Pro
+  provider: Google
+  type: text-to-image
+  released: 2025-11-20
+  pricing:
+    1K: 0.15
+    2K: 0.15
+    4K: 0.30
+  kie_pricing:
+    1K: 0.09
+    2K: 0.09
+    4K: 0.12
+  input:
+    prompt:
+      type: string
+      max: 10000
+      required: true
+    image_input:
+      type: array
+      items: url
+      max: 8
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "auto"]
+      default: "1:1"
+    resolution:
+      type: enum
+      values: ["1K", "2K", "4K"]
+      default: "1K"
+    output_format:
+      type: enum
+      values: ["png", "jpg"]
+      default: "png"
+
+google/imagen4:
+  name: Google Imagen 4
+  provider: Google
+  type: text-to-image
+  released: 2025-06-25
+  pricing:
+    default: 0.06
+  kie_pricing:
+    default: 0.04
+  input:
+    prompt:
+      type: string
+      max: 5000
+      required: true
+    negative_prompt:
+      type: string
+      max: 5000
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16", "3:4", "4:3"]
+      default: "1:1"
+    seed:
+      type: string
+      max: 500
+
+google/imagen4-fast:
+  name: Google Imagen 4 Fast
+  provider: Google
+  type: text-to-image
+  released: 2025-08-15
+  pricing:
+    default: 0.03
+  kie_pricing:
+    default: 0.02
+  input:
+    prompt:
+      type: string
+      max: 5000
+      required: true
+    negative_prompt:
+      type: string
+      max: 5000
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16", "3:4", "4:3"]
+      default: "1:1"
+    seed:
+      type: string
+      max: 500
+
+google/imagen4-ultra:
+  name: Google Imagen 4 Ultra
+  provider: Google
+  type: text-to-image
+  released: 2025-06-25
+  pricing:
+    default: 0.09
+  kie_pricing:
+    default: 0.06
+  input:
+    prompt:
+      type: string
+      max: 5000
+      required: true
+    negative_prompt:
+      type: string
+      max: 5000
+    aspect_ratio:
+      type: enum
+      values: ["1:1", "16:9", "9:16", "3:4", "4:3"]
+      default: "1:1"
+    seed:
+      type: string
+      max: 500
+
+flux-2/flex-text-to-image:
   name: Flux 2 Flex Text-to-Image
   provider: Black Forest Labs
   type: text-to-image
+  released: 2025-11-25
   pricing:
-    1K: 0.03
-    2K: 0.05
+    1K: 0.12
+    2K: 0.22
+  kie_pricing:
+    1K: 0.07
+    2K: 0.12
   input:
     prompt:
       type: string
@@ -46,13 +168,17 @@ flux2/flex-text-to-image:
       values: [1K, 2K]
       default: 1K
 
-flux2/pro-text-to-image:
+flux-2/pro-text-to-image:
   name: Flux 2 Pro Text-to-Image
   provider: Black Forest Labs
   type: text-to-image
+  released: 2025-11-25
   pricing:
-    1K: 0.05
-    2K: 0.08
+    1K: 0.045
+    2K: 0.07
+  kie_pricing:
+    1K: 0.025
+    2K: 0.035
   input:
     prompt:
       type: string
@@ -65,10 +191,13 @@ flux2/pro-text-to-image:
 
 grok-imagine/text-to-image:
   name: Grok Imagine Text-to-Image
-  provider: Grok
+  provider: xAI
   type: text-to-image
+  released: 2024-12-09
   pricing:
-    default: 0.07
+    default: 0.02
+  kie_pricing:
+    default: 0.02
   input:
     prompt:
       type: string
@@ -81,9 +210,12 @@ grok-imagine/text-to-image:
 
 qwen/text-to-image:
   name: Qwen Text-to-Image
-  provider: Qwen
+  provider: Alibaba
   type: text-to-image
+  released: 2025-08-04
   pricing:
+    default: 0.03
+  kie_pricing:
     default: 0.02
   input:
     prompt:
@@ -95,8 +227,11 @@ seedream/4.5-text-to-image:
   name: Seedream 4.5 Text-to-Image
   provider: ByteDance
   type: text-to-image
+  released: 2025-11-01
   pricing:
-    default: 0.03
+    default: 0.04
+  kie_pricing:
+    default: 0.0325
   input:
     prompt:
       type: string
